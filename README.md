@@ -8,10 +8,9 @@ Usage
     //	Instantation
     
     var rect = new Rect(x, y, width, height);
-    
-    //	or
-    
     var rect = Rect.from({ x: 0, y: 0, width: 0, height: 0 });
+    var rect = Rect.from({ top: 0, left: 0, width: 0, height: 0 });
+    var rect = Rect.from({ right: 0, bottom: 0, width: 0, height: 0 });
     
     //	Size
     
