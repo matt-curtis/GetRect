@@ -59,24 +59,22 @@ var Rect = function(x, y, width, height){
 		},
 		configurable: false, enumerable: true
 	});
-};
 
-Rect.from = function(input){
-	if(typeof input != "object") return;
+	Object.defineProperty(this, "midX", {
+		get: function(){ return geo.x + (geo.width / 2); },
+		set: function(value){
+			geo.x = parseNum(value) - (geo.width / 2);
+		},
+		configurable: false, enumerable: true
+	});
 
-	var rect = new this();
-	var keys = ["x", "y", "top", "left", "width", "height"];
-
-	for(var i in keys){
-		var key = keys[i];
-		var value = input[key];
-
-		if(typeof value != "undefined"){
-			rect[key] = value;
-		}
-	}
-
-	return rect;
+	Object.defineProperty(this, "midY", {
+		get: function(){ return geo.y + (geo.height / 2); },
+		set: function(value){
+			geo.y = parseNum(value) - (geo.height / 2);
+		},
+		configurable: false, enumerable: true
+	});
 };
 
 Rect.prototype.resizeBy = function(widthDiff, heightDiff){
